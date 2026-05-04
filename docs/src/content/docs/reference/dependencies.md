@@ -26,7 +26,7 @@ curl -sSL https://raw.githubusercontent.com/microsoft/apm/main/.github/workflows
   > .github/workflows/shared/apm.md
 ```
 
-The canonical version pins `microsoft/apm-action@v1.5.0` and supports multi-org GitHub App authentication (`apps:[]`) and multi-bundle restore. To check whether your vendored copy is current, compare the `Source of truth:` and `apm-action pin:` lines near the top of the file with the canonical copy linked above.
+The canonical version pins `microsoft/apm-action@v1.6.0` and supports multi-org GitHub App authentication (`apps:[]`) and multi-bundle restore. To check whether your vendored copy is current, compare the `Source of truth:` and `apm-action pin:` lines near the top of the file with the canonical copy linked above.
 
 ## Usage
 
