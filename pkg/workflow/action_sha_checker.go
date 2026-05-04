@@ -132,8 +132,17 @@ func CheckActionSHAUpdates(ctx context.Context, actions []ActionUsage, resolver 
 		// Compare SHAs
 		if action.SHA != latestSHA {
 			check.NeedsUpdate = true
+			// Guard against short or empty SHA values before slicing
+			currentShort := action.SHA
+			if len(currentShort) > 7 {
+				currentShort = currentShort[:7]
+			}
+			latestShort := latestSHA
+			if len(latestShort) > 7 {
+				latestShort = latestShort[:7]
+			}
 			check.Message = fmt.Sprintf("Action %s@%s is using SHA %s but latest is %s",
-				action.Repo, action.Version, action.SHA[:7], latestSHA[:7])
+				action.Repo, action.Version, currentShort, latestShort)
 			actionSHACheckerLog.Printf("UPDATE NEEDED: %s", check.Message)
 		} else {
 			actionSHACheckerLog.Printf("Action %s@%s is up to date", action.Repo, action.Version)

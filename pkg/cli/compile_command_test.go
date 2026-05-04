@@ -222,6 +222,7 @@ func TestCompileWorkflowWithValidation_InvalidFile(t *testing.T) {
 
 	// Try to compile a non-existent file
 	err := CompileWorkflowWithValidation(
+		context.Background(),
 		compiler,
 		"/nonexistent/file.md",
 		false, // verbose
@@ -395,6 +396,7 @@ This is a test workflow.
 
 	// Compile without emitting
 	err = CompileWorkflowDataWithValidation(
+		context.Background(),
 		compiler,
 		workflowData,
 		testFile,
@@ -445,6 +447,7 @@ This is a test workflow.
 
 	// Compile the workflow
 	err := CompileWorkflowWithValidation(
+		context.Background(),
 		compiler,
 		testFile,
 		false, // verbose
@@ -792,6 +795,7 @@ This is a test workflow.
 			// require Docker, but this test verifies the API contract that
 			// security tools are independent of the validate flag.
 			err = CompileWorkflowDataWithValidation(
+				context.Background(),
 				compiler,
 				workflowData,
 				testFile,
